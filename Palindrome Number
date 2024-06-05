@@ -1,0 +1,23 @@
+https://leetcode.com/problems/palindrome-number/description/
+
+class Solution {
+    public boolean isPalindrome(int x) {
+        // Negative numbers are not palindromes
+        if (x < 0) {
+            return false;
+        }
+        
+        int a = x;
+        int sum = 0;
+        while (x > 0) {
+            int d = x % 10;
+            sum = sum * 10 + d;
+            x = x / 10;
+        }
+        // Compare sum with the original value of x
+        if (sum == a) {
+            return true;
+        }
+        return false;
+    }
+}
