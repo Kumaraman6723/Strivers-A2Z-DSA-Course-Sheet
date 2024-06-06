@@ -1,0 +1,15 @@
+class Solution
+{
+    public void printNos(int N) {
+        printNosHelper(1, N);
+    }
+
+    private void printNosHelper(int current, int N) {
+        if (current > N) {
+            return;
+        } else {
+            System.out.print(current+" ");
+            printNosHelper(current + 1, N);
+        }
+    }
+}
