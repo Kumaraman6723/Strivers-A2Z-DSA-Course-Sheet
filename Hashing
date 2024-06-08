@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class Hashing {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter the number of elements in the array:");
+        int n = sc.nextInt();
+
+        int[] arr = new int[n];
+        System.out.println("Enter elements in the array:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        // Precompute the hash values:
+        int[] hash = new int[1001];  // Assuming elements are in the range 0-1000
+        for (int i = 0; i < n; i++) {
+            hash[arr[i]]++;
+        }
+
+        // Print the frequency of all elements in the array
+        System.out.println("Frequencies of all elements:");
+        for (int i = 0; i < hash.length; i++) {
+            if (hash[i] > 0) {
+                System.out.println("Element " + i + ": " + hash[i] + " times");
+            }
+        }
+
+        sc.close();
+    }
+}
