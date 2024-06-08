@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class HashingCharacter {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter the number of elements in the array:");
+        int n = sc.nextInt();
+
+        char[] arr = new char[n];
+        System.out.println("Enter elements in the array:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.next().charAt(0);
+        }
+
+        // Precompute the hash values:
+        int[] hash = new int[26];  // Assuming elements are lowercase a-z
+        for (int i = 0; i < n; i++) {
+            hash[arr[i] - 'a']++;
+        }
+
+        // Print the frequency of all elements in the array
+        System.out.println("Frequencies of all elements:");
+        for (int i = 0; i < hash.length; i++) {
+            if (hash[i] > 0) {
+                System.out.println("Element " + (char) (i + 'a') + ": " + hash[i] + " times");
+            }
+        }
+
+        sc.close();
+    }
+}
