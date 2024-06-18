@@ -1,0 +1,18 @@
+class Solution {
+    
+    public static long pairWithMaxSum(long[] nums, long N) {
+        // Initialize maxSum to the sum of the first pair of elements
+        long maxSum = nums[0] + nums[1];
+
+        // Iterate through the array to find the maximum sum of adjacent pairs
+        for (int i = 1; i < N - 1; i++) {
+            long currentSum = nums[i] + nums[i + 1];
+            if (currentSum > maxSum) {
+                maxSum = currentSum;
+            }
+        }
+
+        // Return the maximum sum found
+        return maxSum;
+    }
+}
