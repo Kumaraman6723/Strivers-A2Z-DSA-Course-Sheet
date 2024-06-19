@@ -1,0 +1,23 @@
+class Solution {
+    // Function to find the leaders in the array.
+    static ArrayList<Integer> leaders(int n, int arr[]) {
+       ArrayList<Integer> elements = new ArrayList<Integer>();
+       // Start from the last element and initialize the maximum from the right.
+       int maxFromRight = arr[n-1];
+       
+       // The last element is always a leader.
+       elements.add(maxFromRight);
+    // Your code here
+  for(int i = n-2; i >= 0; i--) {
+           if(arr[i] >= maxFromRight) {
+               maxFromRight = arr[i];
+               elements.add(maxFromRight);
+           }
+       }
+       
+       // The elements are added in reverse order, so reverse the list.
+       Collections.reverse(elements);
+       
+       return elements;
+    }
+}
