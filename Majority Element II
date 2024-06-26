@@ -1,0 +1,54 @@
+class Solution {
+    public List<Integer> majorityElement(int[] nums) {
+         Map<Integer, Integer> hm = new HashMap<>();
+        List<Integer> list = new ArrayList<>();
+        int n = nums.length;
+        int threshold = n / 3;
+
+        // Populate the hashmap with the count of each element
+        for (int i = 0; i < n; i++) {
+            hm.put(nums[i], hm.getOrDefault(nums[i], 0) + 1);
+        }
+
+        // Check if any element appears more than n/3 times
+        for (Map.Entry<Integer, Integer> entry : hm.entrySet()) {
+            if (entry.getValue() > threshold) {
+                list.add(entry.getKey());
+            }
+        }
+
+        return list;
+    }
+
+}
+
+//brute force 
+import java.util.ArrayList;
+
+public class MajorityElement2 {
+    public static void main(String[] args) {
+        ArrayList<Integer> a = new ArrayList<>();
+        int[] arr = {1, 1, 1, 3, 3, 2, 2, 2};
+        int n = arr.length;
+
+        for (int i = 0; i < n; i++) {
+            if (a.size() == 0 || (a.size() == 1 && a.get(0) != arr[i])) {
+                int count = 0;
+                for (int j = 0; j < n; j++) {
+                    if (arr[i] == arr[j]) {
+                        count++;
+                    }
+                }
+                if (count > n / 3) {
+                    a.add(arr[i]);
+                }
+            }
+            if (a.size() == 2) {
+                break;
+            }
+        }
+
+        System.out.println("Majority elements: " + a);
+    }
+
+}
