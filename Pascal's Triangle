@@ -1,0 +1,32 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class pascalstriangle {
+    public static void main(String[] args) {
+        System.out.println(generate(5));
+
+    }
+    public static List<List<Integer>> generate(int numRows) {
+        ArrayList<List<Integer>> ans= new ArrayList<>();
+        for(int i=1;i<numRows;i++)
+        {
+            ans.add(print(i));
+        }
+        return ans;
+
+    }
+    static ArrayList<Integer> print(int n)
+    {
+        int ans=1;
+        ArrayList<Integer> a= new ArrayList<>();
+        a.add(ans);
+
+        for (int i = 1; i < n; i++) {
+            ans=ans*(n-i);
+            ans=ans/i;
+            a.add(ans);
+        }
+        return a;
+    }
+    
+}
